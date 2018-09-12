@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Get control of the HTTP layer with middlewares - SOAP Client Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Get control of the HTTP layer with middlewares";
+    var mkdocs_page_input_path = "middlewares.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SOAP Client Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../client/">Creating your custom client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../events/">Hooking in with events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handlers/">Use your preferred data transfer layer with Handlers</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Get control of the HTTP layer with middlewares</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#get-control-of-the-http-layer-with-middlewares">Get control of the HTTP layer with middlewares</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#built-in-middlewares">Built-in middlewares</a></li>
+        
+            <li><a class="toctree-l3" href="#creating-your-own-middleware">Creating your own middleware</a></li>
+        
+            <li><a class="toctree-l3" href="#xml-manipulations">XML manipulations</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../testing/">Testing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../type-converter/">Convert SOAP types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wsdl-providers/">Get in control of the WSDL file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cli/generate-classmap/">Generating class maps</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-client/">Generating clients</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-clientfactory/">Generate a base client factory</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-types/">Generating Value-objects</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Code generation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../code-generation/assemblers/">Code assemblers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../code-generation/configuration/">Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../code-generation/rules/">Code generation rules</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Plugins</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../plugins/caching/">Caching plugin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plugins/logger/">Logger plugin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plugins/validator/">Validator plugin</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SOAP Client Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Get control of the HTTP layer with middlewares</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="get-control-of-the-http-layer-with-middlewares">Get control of the HTTP layer with middlewares</h1>
+<p>If the SOAP server has some extensions enabled, it is hard to get them working with the built-in SOAP client.
+In many cases, you'll have to transform the XML request before sending it to the server 
+or normalize the response XML before converting it back to objects.
+It is also possible to specify some custom HTTP headers to make sure you can authenticate on the remote server.</p>
+<p>To make sure your soap-client can work with middlewares, 
+you'll have to check if your <a href="../handlers/">data transfer handler</a> supports middlewares.
+You can take a look to the list of handlers and check if your handler has the feature "MiddlewareSupporting".</p>
+<p>Next, you can use one of the built-in middlewares:</p>
+<ul>
+<li><a href="#basicauthmiddleware">BasicAuthMiddleware</a></li>
+<li><a href="#ntlmmiddleware">NtlmMiddleware</a> (deprecated)</li>
+<li><a href="#wsamiddleware">WsaMiddleware</a></li>
+<li><a href="#wssemiddleware">WsseMiddleware</a></li>
+<li><a href="#removeemptynodesmiddleware">RemoveEmptyNodesMiddleware</a></li>
+<li><a href="#wsdldisableextensionsmiddleware">Wsdl/DisableExtensionsMiddleware</a></li>
+</ul>
+<p>Can't find the middleware you were looking for?
+<a href="#creating-your-own-middleware">It is always possible to create your own one!</a></p>
+<h2 id="built-in-middlewares">Built-in middlewares</h2>
+<h3 id="basicauthmiddleware">BasicAuthMiddleware</h3>
+<p>In many cases, your server had some kind of authentication enabled.
+This basic authentication middleware provides the features you need to add a username and password to the request.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="php">$clientBuilder-&gt;addMiddleware(new BasicAuthMiddleware('username', 'password'));
+</code></pre>
+
+<h3 id="ntlmmiddleware">NtlmMiddleware</h3>
+<p><strong>Deprecated:</strong> since we moved from Guzzle, you will need to write your own NTLM auth implementation. Your best try
+is using a cURL Client with the following options: <code>[CURLOPT_HTTPAUTH =&gt; CURLAUTH_NTLM, CURLOPT_USERPWD =&gt; 'user:pass']</code>.</p>
+<p>However, take care as there's a <a href="https://github.com/curl/curl/pull/1242">cURL misbehavior</a> that might block
+you going forward with some SOAP servers.</p>
+<h3 id="wsamiddleware">WsaMiddleware</h3>
+<p>If your remote server expects Web Service Addressing (WSA) headers to be available in your request,
+you can easily activate this middleware.
+Internally it used the <a href="https://github.com/robrichards/wse-php">wse-php package of robrichards</a>
+which is a well known library that is used by many developers.
+The middleware is a light wrapper that makes it easy to use in your application.</p>
+<p><strong>Dependencies</strong></p>
+<pre><code class="sh">composer require robrichards/wse-php:^2.0
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<pre><code class="php">$clientBuilder-&gt;addMiddleware(new WsaMiddleware());
+</code></pre>
+
+<h3 id="wssemiddleware">WsseMiddleware</h3>
+<p>If you ever had to implement Web Service Security (WSS / WSSE) manually, you know that it is a lot of work to get this one working.
+Luckily for you we created an easy to use WSSE middleware that can be used to sign your SOAP requests.</p>
+<p>Internally it used the <a href="https://github.com/robrichards/wse-php">wse-php package of robrichards</a>
+which is a well known library that is used by many developers.
+The middleware is a light wrapper that makes it easy to use in your application.</p>
+<p><strong>Dependencies</strong></p>
+<pre><code class="sh">composer require robrichards/wse-php:^2.0
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<pre><code class="php">// Simple:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+
+// With signed headers. E.g: in combination with WSA:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+$wsse-&gt;withAllHeadersSigned();
+
+// With configurable timestamp expiration:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+$wsse-&gt;withTimestamp(3600);
+
+// With plain user token:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+$wsse-&gt;withUserToken('username', 'password', false);
+
+// With digest user token:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+$wsse-&gt;withUserToken('username', 'password', true);
+
+// With end-to-end encryption enabled:
+$wsse = new WsseMiddleware('privatekey.pem', 'publickey.pyb');
+$wsse-&gt;withEncryption('client-x509.pem');
+$wsse-&gt;withServerCertificateHasSubjectKeyIdentifier(true);
+
+// Add it to the clientbuilder
+$clientBuilder-&gt;addMiddleware($wsse);
+</code></pre>
+
+<h3 id="removeemptynodesmiddleware">RemoveEmptyNodesMiddleware</h3>
+<p>Unset properties are converted into empty nodes in the request xml.
+If you need to remove all empty nodes from the request xml, you can simply add the remove empty nodes middleware.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="php">$clientBuilder-&gt;addMiddleware(new RemoveEmptyNodesMiddleware());
+</code></pre>
+
+<h3 id="wsdldisableextensionsmiddleware">Wsdl/DisableExtensionsMiddleware</h3>
+<p>The default SOAP client does not support <code>wsdl:required</code> attributes since there is no SOAP extension mechanism in PHP.
+You will retrieve this exception: "[SoapFault] SOAP-ERROR: Parsing WSDL: Unknown required WSDL extension" 
+when the WSDL does contain required SOAP extensions.</p>
+<p>This middleware can be used to set the "wsdl:required" 
+property to false on the fly so that you don't have to change the WSDL on the server.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="php">$wsdlProvier = HttPlugWsdlProvider::create($client);
+$wsdlProvider-&gt;addMiddleware(new DisableExtensionsMiddleware());
+$clientBuilder-&gt;withWsdlProvider($wsdlProvider);
+</code></pre>
+
+<h2 id="creating-your-own-middleware">Creating your own middleware</h2>
+<p>Didn't find the middleware you needed? No worries! It is very easy to create your own middleware.
+We currently added a thin layer above <a href="http://docs.php-http.org/en/latest/plugins/index.html">HTTPlug plugins</a> 
+to make it easy to modify PSR-7 request and responses.</p>
+<p>The easiest way to get you starting is by extending the base <code>Middleware</code> class.
+You can specify your own <code>beforeRequest()</code> and <code>afterResponse()</code> method and manipulate whatever you like.</p>
+<pre><code class="php">class MyMiddleware extends \Phpro\SoapClient\Middleware\MiddleWare
+{
+    public function getName(): string
+    {
+        return 'my_unique_middleware_name';
+    }
+
+    /**
+     * @param callable         $handler
+     * @param RequestInterface $request
+     * @param array            $options
+     *
+     * @return PromiseInterface
+     */
+    public function beforeRequest(callable $handler, RequestInterface $request): Promise
+    {
+        return $handler($request, $options);
+    }
+
+    /**
+     * @param ResponseInterface $response
+     *
+     * @return ResponseInterface
+     */
+    public function afterResponse(ResponseInterface $response): ResponseInterface
+    {
+        return $response;
+    }
+}
+</code></pre>
+
+<h2 id="xml-manipulations">XML manipulations</h2>
+<p>Once you get a hang of creating your own middlewares, you'll find out that in many cases you need to manipulate the SOAP XML request or response.
+Because this XML is heavily namespaced, we created a <code>SoapXml</code> manipulator class.</p>
+<p>Example usage:</p>
+<pre><code class="php">// Load the XML from a PSR7 request or response:
+$xml = SoapXml::fromStream($request-&gt;getBody());
+
+// Fetch specific elements:
+$dom = $xml-&gt;getXmlDocument();
+$enveloppe = $xml-&gt;getEnvelope();
+$headers = $xml-&gt;getHeaders();
+$body = $xml-&gt;getBody();
+$namespace = $xml-&gt;getSoapNamespaceUri();
+
+// XML manipulations:
+$xml-&gt;addEnvelopeNamespace('alias', 'http://alias');
+$newHeader = $xml-&gt;createSoapHeader();
+$xml-&gt;prependSoapHeader($newHeader);
+
+// Xpath functions:
+$xml-&gt;registerNamespace('alias', 'http://alias');
+$xml-&gt;xpath('/soap:Envelope')-&gt;item(0);
+
+// Use the manipulated XML in your PSR7 request or response:
+$request = $request-&gt;withBody($xml-&gt;toStream())
+</code></pre>
+
+<p>As you can see, this XML manipulation class is rather small at the moment but is super powerful.
+Internally it uses <code>DOMDocument</code> to make it possible to manipulate every little XML detail you want.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../testing/" class="btn btn-neutral float-right" title="Testing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../handlers/" class="btn btn-neutral" title="Use your preferred data transfer layer with Handlers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../handlers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../testing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

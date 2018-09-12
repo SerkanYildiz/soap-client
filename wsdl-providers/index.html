@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Get in control of the WSDL file - SOAP Client Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Get in control of the WSDL file";
+    var mkdocs_page_input_path = "wsdl-providers.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SOAP Client Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../client/">Creating your custom client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../events/">Hooking in with events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handlers/">Use your preferred data transfer layer with Handlers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../middlewares/">Get control of the HTTP layer with middlewares</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../testing/">Testing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../type-converter/">Convert SOAP types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Get in control of the WSDL file</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#get-in-control-of-the-wsdl-file">Get in control of the WSDL file</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#httplugwsdlprovider">HttPlugWsdlProvider</a></li>
+        
+            <li><a class="toctree-l3" href="#inmemorywsdlprovider">InMemoryWsdlProvider</a></li>
+        
+            <li><a class="toctree-l3" href="#localwsdlprovider">LocalWsdlProvider</a></li>
+        
+            <li><a class="toctree-l3" href="#mixedwsdlprovider">MixedWsdlProvider</a></li>
+        
+            <li><a class="toctree-l3" href="#creating-your-own-wsdl-provider">Creating your own WSDL provider</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cli/generate-classmap/">Generating class maps</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-client/">Generating clients</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-clientfactory/">Generate a base client factory</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cli/generate-types/">Generating Value-objects</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Code generation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../code-generation/assemblers/">Code assemblers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../code-generation/configuration/">Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../code-generation/rules/">Code generation rules</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Plugins</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../plugins/caching/">Caching plugin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plugins/logger/">Logger plugin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plugins/validator/">Validator plugin</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SOAP Client Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Get in control of the WSDL file</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="get-in-control-of-the-wsdl-file">Get in control of the WSDL file</h1>
+<p>The built-in SOAP client does not give you control on how the WSDL is downloaded to the system.
+ Therefor we've created a <code>WsdlProvider</code> mechanism that can be customized to your demands.</p>
+<p>General configuration:</p>
+<pre><code class="php">$clientBuilder = new ClientBuilder($clientFactory, $wsdl, $soapOptions);
+$clientBuilder-&gt;withWsdlProvider($provider);
+$client = $clientBuilder-&gt;build();
+</code></pre>
+
+<p>Here is a list of built-in providers:</p>
+<ul>
+<li><a href="#httplugwsdlprovider">HttPlugWsdlProvider</a></li>
+<li><a href="#inmemorywsdlprovider">InMemoryWsdlProvider</a></li>
+<li><a href="#localwsdlprovider">LocalWsdlProvider</a></li>
+<li><a href="#mixedwsdlprovider">MixedWsdlProvider</a></li>
+</ul>
+<p>Can't find the wsdl provider you were looking for?
+<a href="#creating-your-own-wsdl-provider">It is always possible to create your own one!</a></p>
+<h2 id="httplugwsdlprovider">HttPlugWsdlProvider</h2>
+<p><a href="http://httplug.io/">HTTPlug</a> is a HTTP client abstraction that can be used with multiple client packages.
+The HTTPlug WSDL provider can be used for downloading remote WSDLs.
+It has support for <a href="../middlewares/">middlewares</a> so that you have full control over the HTTP request and response.
+This way, you will always be able to download and manipulate the WSDL file even if it secured with e.g. NTLM.</p>
+<p><strong>Dependencies</strong></p>
+<p>Load HTTP plug core packages:</p>
+<pre><code class="sh">composer require psr/http-message:^1.0 php-http/httplug:^1.1 php-http/message-factory:^1.0 php-http/discovery:^1.3 php-http/message:^1.6 php-http/client-common:^1.6
+</code></pre>
+
+<p><strong>Select HTTP Client</strong></p>
+<p>Select one of the many clients you want to use to perform the HTTP requests:
+http://docs.php-http.org/en/latest/clients.html#clients-adapters</p>
+<pre><code class="sh">composer require php-http/client-implementation:^1.0
+</code></pre>
+
+<p><strong>Configuration</strong></p>
+<pre><code class="php">$provider = HttPlugWsdlProvider::createForClient($client);
+
+// Optional location:
+$provider-&gt;setLocation('/some/destination/file.wsdl');
+
+// Middlewares support:
+$provider-&gt;addMiddleware($middleware);
+
+
+// Register to the client builder
+$clientBuilder = new ClientBuilder($clientFactory, $wsdl, $soapOptions);
+$clientBuilder-&gt;withWsdlProvider($provider);
+$client = $clientBuilder-&gt;build();
+</code></pre>
+
+<p><em>Note:</em> If you want to cache the WSDL so that you don't have to download it on every request, you can use the built-in caching options:</p>
+<pre><code class="php">$clientBuilder = new ClientBuilder($clientFactory, $wsdl, [
+    'cache_wsdl' =&gt; WSDL_CACHE_BOTH,
+]);
+</code></pre>
+
+<p>To change the TTL of the cache, you can adjust following <code>php.ini</code> setting:</p>
+<pre><code class="php"># See: http://php.net/manual/en/soap.configuration.php
+soap.wsdl_cache_ttl: 86400
+</code></pre>
+
+<h2 id="inmemorywsdlprovider">InMemoryWsdlProvider</h2>
+<p>By using the in-memory WSDL provider, you can just use a complete XML version of the WSDL as source.
+This one might come in handy during tests, but probably shouldn't be used in production.</p>
+<p><strong>Configuration</strong></p>
+<pre><code class="php">$wsdl = '&lt;definitions ..... /&gt;'
+$clientBuilder = new ClientBuilder($clientFactory, $wsdl, $soapOptions);
+$clientBuilder-&gt;withWsdlProvider(new InMemoryWsdlProvider());
+$client = $clientBuilder-&gt;build();
+</code></pre>
+
+<h2 id="localwsdlprovider">LocalWsdlProvider</h2>
+<p>The local WSDL provider can be used to load a local file.
+It contains an additional check to make sure that the WSDL file exists and throws a <code>WsdlException</code> if it does not exist.</p>
+<p><strong>Configuration</strong></p>
+<pre><code class="php">$clientBuilder = new ClientBuilder($clientFactory, $wsdl, $soapOptions);
+$clientBuilder-&gt;withWsdlProvider(LocalWsdlProvider::create());
+$client = $clientBuilder-&gt;build();
+</code></pre>
+
+<h2 id="mixedwsdlprovider">MixedWsdlProvider</h2>
+<p>The mixed WSDL provider is used by default. 
+You can pass every string you would normally pass to the built-in SOAP client's wsdl option.
+No additional checks are executed, the loading of the file will be handled by the internal <code>SoapClient</code> class.</p>
+<p><strong>Configuration</strong></p>
+<pre><code class="php">$clientBuilder = new ClientBuilder($clientFactory, $wsdl, $soapOptions);
+$clientBuilder-&gt;withWsdlProvider(new MixedWsdlProvider());
+$client = $clientBuilder-&gt;build();
+</code></pre>
+
+<h2 id="creating-your-own-wsdl-provider">Creating your own WSDL provider</h2>
+<p>Didn't find the WSDL provider you needed? No worries! It is very easy to create your own WSDL provider.
+The only thing you'll need to do is implement the WsdlProviderInterface:</p>
+<pre><code class="php">class MyWsdlProvider extends \Phpro\SoapClient\Wsdl\Provider\WsdlProviderInterface
+{
+    /**
+     * The result of this method should be the link to the WSDL that can be used by the PHP soap-client.
+     *
+     * {@inheritdoc}
+     */
+    public function provide(string $source)
+    {
+        return $source;
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cli/generate-classmap/" class="btn btn-neutral float-right" title="Generating class maps">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../usage/" class="btn btn-neutral" title="Basic Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cli/generate-classmap/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

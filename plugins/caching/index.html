@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Caching plugin - SOAP Client Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Caching plugin";
+    var mkdocs_page_input_path = "plugins/caching.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SOAP Client Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../client/">Creating your custom client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../events/">Hooking in with events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../handlers/">Use your preferred data transfer layer with Handlers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../middlewares/">Get control of the HTTP layer with middlewares</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../testing/">Testing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../type-converter/">Convert SOAP types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../wsdl-providers/">Get in control of the WSDL file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../cli/generate-classmap/">Generating class maps</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../cli/generate-client/">Generating clients</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../cli/generate-clientfactory/">Generate a base client factory</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../cli/generate-types/">Generating Value-objects</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Code generation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../code-generation/assemblers/">Code assemblers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../code-generation/configuration/">Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../code-generation/rules/">Code generation rules</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Plugins</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Caching plugin</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#caching-plugin">Caching plugin</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../logger/">Logger plugin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../validator/">Validator plugin</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SOAP Client Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Plugins &raquo;</li>
+        
+      
+    
+    <li>Caching plugin</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="caching-plugin">Caching plugin</h1>
+<p>This repository does not contain a caching plugin.
+ If you want to be able to cache the methods in your SOAP client, you could use our 
+ <a href="https://github.com/phpro/annotated-cache">annotated-cache</a> package.</p>
+<p>This package will make it possible to specify the caching configuration in the annotations of your SOAP client.</p>
+<pre><code class="php">
+use Phpro\AnnotatedCache\Annotation\Cacheable;
+
+class YourClient extends Client
+{
+    /**
+     * @Cacheable(pools=&quot;soapclient-pool&quot;, key=&quot;request&quot;, tags=&quot;helloworld&quot;, ttl=500)
+     */
+    public function helloWorld(RequestInterface $request)
+    {
+        return $this-&gt;call('HelloWorld', $request);
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../logger/" class="btn btn-neutral float-right" title="Logger plugin">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../code-generation/rules/" class="btn btn-neutral" title="Code generation rules"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../code-generation/rules/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../logger/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
